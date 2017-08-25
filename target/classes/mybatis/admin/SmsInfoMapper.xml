@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhl.sms.dao.ISmsDao">
+
+    <resultMap type="SmsInfo" id="smsMap">
+    	<id property="smsId" column="sms_id"/>
+    	<result property="outSmsNo" column="out_sms_no"/>
+    	<result property="inSmsNo" column="in_sms_no"/>
+    	<result property="applyId" column="apply_id"/>
+    	<result property="channelId" column="channel_id"/>
+    	<result property="smsType" column="sms_type"/>
+    	<result property="smsPhone" column="sms_phone"/>
+    	<result property="smsContent" column="sms_content"/>
+    	<result property="smsReturn" column="sms_return"/>
+    	<result property="userReturnContent" column="user_return_content"/>
+    	<result property="createdDate" column="created_date"/>
+    	<result property="returnCode" column="return_code"/>
+    	<result property="returnMsg" column="return_msg"/>
+    </resultMap>
+    
+    <!-- 写入 -->
+	<insert id="saveSmsInfo" parameterType="SmsInfo" useGeneratedKeys="true" keyProperty="smsId">
+		insert into smsInfo
+		(sms_id, out_sms_no, in_sms_no, apply_id, channel_id, sms_type, sms_phone, sms_content, 
+		sms_return, created_date, return_code, return_msg)
+		values
+		(#{smsId}, #{outSmsNo}, #{inSmsNo}, #{applyId}, #{channelId}, #{smsType}, #{smsPhone}, #{smsContent}, 
+		#{smsReturn}, #{createdDate}, #{returnCode}, #{returnMsg})
+	</insert>
+	
+	<!-- 根据上游id和手机号查询信息 -->
+	<select id="querySmsInfoByInSmsNoAndPhone" parameterType="map" resultMap="smsMap">
+		select 
+		sms_id, out_sms_no, in_sms_no, apply_id, channel_id, sms_type, 
+		sms_phone, sms_content, sms_return, user_return_content, created_date, 
+		return_code, return_msg
+		from smsInfo where in_sms_no=#{0} and sms_phone=#{1}
+	</select>
+	
+	<update id="updateSmsUserReturn" parameterType="map">
+		update smsInfo set user_return_content=#{1} where sms_id=#{0}
+	</update>
+
+</mapper>

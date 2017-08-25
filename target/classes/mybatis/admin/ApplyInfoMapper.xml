@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhl.sms.dao.IApplyDao">
+
+    <resultMap type="ApplyInfo" id="applyMap">
+    	<id property="applyId" column="apply_id"/>
+    	<id property="applyKey" column="apply_key"/>
+    	<result property="applyChName" column="apply_ch_name"/>
+    	<result property="applyPower" column="apply_power"/>
+    	<result property="smsCode" column="sms_code"/>
+    	<result property="smsNotify" column="sms_notify"/>
+    	<result property="smsMarket" column="sms_market"/>
+    	<result property="batchSmsNotify" column="batch_sms_notify"/>
+    	<result property="batchSmsMarket" column="batch_sms_market"/>
+    	<result property="type" column="type"/>
+    	<result property="state" column="state"/>
+    	<result property="notifyUrl" column="notify_url"/>
+    	<result property="userReplyUrl" column="user_reply_url"/>
+    	<result property="createdDate" column="created_date"/>
+    </resultMap>
+    <select id="queryByApplyId" parameterType="map" resultMap="applyMap">
+    	select 
+    	m.apply_id,m.apply_key,m.apply_ch_name,m.apply_power,m.sms_code,
+    	m.sms_notify,m.sms_market,m.type,m.state,m.notify_url,m.user_reply_url,
+    	m.batch_sms_notify,m.batch_sms_market,m.created_date 
+    	from applyInfo m where apply_id=#{apply_id}
+    </select>
+    
+
+	<!-- 写入 
+    <insert id="addNewsComment" parameterType="ChannelInfo" useGeneratedKeys="true" keyProperty="channelId">
+        insert log_info
+        (log_id, log_centent)
+        values(#{log_id}, #{log_centent})
+    </insert>-->
+
+</mapper>

@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" 
+	"http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhl.sms.dao.IChannelDao">
+
+    <resultMap type="ChannelInfo" id="channelMap">
+    	<id property="channelId" column="channel_id"/>
+    	<result property="channelName" column="channel_name"/>
+    	<result property="channelChName" column="channel_ch_name"/>
+    	<result property="userName" column="username"/>
+    	<result property="passWord" column="password"/>
+    	<result property="channelUrl" column="channel_url"/>
+    	<result property="type" column="type"/>
+    	<result property="state" column="state"/>
+    	<result property="notifyUrl" column="notify_url"/>
+    	<result property="userReplyUrl" column="user_reply_url"/>
+    	<result property="createdDate" column="created_date"/>
+    </resultMap>
+    
+    <select id="queryByChannelId" parameterType="map" resultMap="channelMap">
+    	select 
+    	channel_id, channel_name, channel_ch_name, 
+    	username, password, channel_url, type, state, 
+    	notify_url, user_reply_url, created_date 
+    	from channelInfo where channel_id=#{channel_id}
+    </select>
+    
+
+	<!-- 写入 
+    <insert id="addNewsComment" parameterType="ChannelInfo" useGeneratedKeys="true" keyProperty="channelId">
+        insert log_info
+        (log_id, log_centent)
+        values(#{log_id}, #{log_centent})
+    </insert>-->
+
+</mapper>

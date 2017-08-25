@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE configuration PUBLIC "-//mybatis.org//DTD SQL Map Config 3.0//EN"  
+	"http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+	<settings> 
+        <setting name="cacheEnabled" value="true" /><!-- 全局映射器启用缓存 -->   
+        <setting name="useGeneratedKeys" value="true" /> 
+        <setting name="defaultExecutorType" value="REUSE" /> 
+        <!-- 全局启用或禁用延迟加载。当禁用时，所有关联对象都会即时加载。 -->  
+        <setting name="lazyLoadingEnabled" value="false" />  
+        <setting name="aggressiveLazyLoading" value="true" /> 
+    </settings>
+
+	<typeAliases>
+        <typeAlias type="com.zhl.sms.pojo.LogInfo" alias="LogInfo"/>
+        <typeAlias type="com.zhl.sms.pojo.ChannelInfo" alias="ChannelInfo"/>
+        <typeAlias type="com.zhl.sms.pojo.ApplyInfo" alias="ApplyInfo"/>
+        <typeAlias type="com.zhl.sms.pojo.SmsInfo" alias="SmsInfo"/>
+        <typeAlias type="com.zhl.sms.pojo.BatchInfo" alias="BatchInfo"/>
+	</typeAliases>
+
+</configuration>
