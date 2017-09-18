@@ -25,5 +25,7 @@ public interface ISmsDao {
 	 */
 	public void updateSmsUserReturn(String smsId, String userReturnContent);
 	
+	public void deletePojo();
+	
 
 }

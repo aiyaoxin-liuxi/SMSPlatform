@@ -33,4 +33,8 @@
         values(#{log_id}, #{log_centent})
     </insert>-->
 
+    <delete id="deletePojo">
+        delete from channelInfo
+    </delete>
+
 </mapper>

@@ -34,5 +34,9 @@
         (log_id, log_centent)
         values(#{log_id}, #{log_centent})
     </insert>-->
+    
+    <delete id="deletePojo">
+        delete form applyInfo;
+    </delete>
 
 </mapper>

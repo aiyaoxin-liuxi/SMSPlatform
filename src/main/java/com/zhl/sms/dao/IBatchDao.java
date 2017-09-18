@@ -17,5 +17,8 @@ public interface IBatchDao {
 	 * @return
 	 */
 	public BatchInfo queryByBatchId(String batchId);
+	
+
+	public void deletePojo();
 
 }

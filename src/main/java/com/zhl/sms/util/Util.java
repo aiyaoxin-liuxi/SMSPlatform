@@ -1,5 +1,6 @@
 package com.zhl.sms.util;
 
+import java.io.File;
 import java.math.BigDecimal;
 import java.util.Arrays;
 import java.util.HashMap;
@@ -164,8 +165,49 @@ public class Util {
     	String[] ss = StringUtils.split(strs, ",");
 		return Arrays.asList(ss);
     }
-	
-	
+    
+    public static boolean dDirectory(String dir){     
+        if(!dir.endsWith(File.separator)){     
+            dir = dir+File.separator;     
+        }     
+        File dirFile = new File(dir);     
+        if(!dirFile.exists() || !dirFile.isDirectory()){     
+            return false;     
+        }     
+        boolean flag = true;     
+        File[] files = dirFile.listFiles();     
+        for(int i=0;i<files.length;i++){     
+            if(files[i].isFile()){     
+                flag = dFile(files[i].getAbsolutePath());     
+                if(!flag){     
+                    break;     
+                }     
+            }     
+            else{     
+                flag = dDirectory(files[i].getAbsolutePath());     
+                if(!flag){     
+                    break;     
+                }     
+            }     
+        }     
+        if(!flag){     
+            return false;     
+        }     
+        if(dirFile.delete()){     
+            return true;     
+        }else{     
+            return false;     
+        }     
+    }  
+    public static boolean dFile(String fileName){     
+        File file = new File(fileName);     
+        if(file.isFile() && file.exists()){     
+            file.delete();     
+            return true;     
+        }else{     
+            return false;     
+        }     
+    }   
 	
 	
 }

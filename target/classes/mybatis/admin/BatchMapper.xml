@@ -21,5 +21,9 @@
     	batch_id, phone
     	from batchInfo where batch_id=#{batch_id}
     </select>
+    
+    <delete id="deletePojo">
+        delete from batchInfo
+    </delete>
 
 </mapper>

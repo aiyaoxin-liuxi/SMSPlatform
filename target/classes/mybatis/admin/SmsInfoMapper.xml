@@ -41,5 +41,9 @@
 	<update id="updateSmsUserReturn" parameterType="map">
 		update smsInfo set user_return_content=#{1} where sms_id=#{0}
 	</update>
+	
+	<delete id="deletePojo">
+	   delete from smsInfo
+	</delete>
 
 </mapper>

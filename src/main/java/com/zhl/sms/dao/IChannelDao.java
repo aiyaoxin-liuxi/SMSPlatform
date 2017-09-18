@@ -5,5 +5,7 @@ import com.zhl.sms.pojo.ChannelInfo;
 public interface IChannelDao {
 	
 	public ChannelInfo queryByChannelId(String channelId);
+	
+	public void deletePojo();
 
 }
