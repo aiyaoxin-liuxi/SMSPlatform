@@ -12,7 +12,7 @@
 		<repository>
 			<id>3rd-party</id>
 			<name>3rd party</name>
-			<url>http://218.240.148.182:8081/nexus/content/groups/public/</url>
+			<url>http://119.90.96.124:8081/nexus/content/groups/public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -25,7 +25,7 @@
 		<pluginRepository>
 			<id>3rd-party</id>
 			<name>3rd party</name>
-			<url>http://218.240.148.182:8081/nexus/content/groups/public/</url>
+			<url>http://119.90.96.124:8081/nexus/content/groups/public/</url>
 			<releases>
 				<enabled>true</enabled>
 			</releases>
@@ -43,12 +43,12 @@
 	</properties>
 
 	<dependencies>
-	   <dependency>
-            <groupId>junit</groupId>
-            <artifactId>junit</artifactId>
-            <version>4.11</version>
-            <scope>test</scope>
-        </dependency>
+		<dependency>
+			<groupId>junit</groupId>
+			<artifactId>junit</artifactId>
+			<version>4.11</version>
+			<scope>test</scope>
+		</dependency>
 		<!-- spring start -->
 		<dependency>
 			<groupId>org.springframework</groupId>
@@ -427,7 +427,7 @@
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-client</artifactId>
-			<version>3.0.7.Final</version> 
+			<version>3.0.7.Final</version>
 		</dependency>
 		<dependency>
 			<groupId>javax.validation</groupId>
@@ -441,14 +441,14 @@
 			<artifactId>resteasy-jackson-provider</artifactId>
 			<version>3.0.7.Final</version>
 		</dependency>
-		
+
 		<!-- 如果要使用xml序列化 -->
 		<dependency>
 			<groupId>org.jboss.resteasy</groupId>
 			<artifactId>resteasy-jaxb-provider</artifactId>
 			<version>3.0.7.Final</version>
 		</dependency>
-		
+
 		<!-- 如果要使用tomcat server -->
 		<dependency>
 			<groupId>org.apache.tomcat.embed</groupId>
@@ -461,10 +461,19 @@
 			<version>8.0.11</version>
 		</dependency>
 		<dependency>
-		    <groupId>c3p0</groupId>
-		    <artifactId>c3p0</artifactId>
-		    <version>0.9.1.2</version>
+			<groupId>c3p0</groupId>
+			<artifactId>c3p0</artifactId>
+			<version>0.9.1.2</version>
 		</dependency>
+
+
+        <!-- test中试验rcoketMQ -->
+		<dependency>
+			<groupId>com.alibaba.rocketmq</groupId>
+			<artifactId>rocketmq-client</artifactId>
+			<version>3.2.6</version>
+		</dependency>
+		
 	</dependencies>
 	<build>
 		<finalName>SMSPlatform</finalName>
